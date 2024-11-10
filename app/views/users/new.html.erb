@@ -1,0 +1,45 @@
+<h1>New User</h1>
+<!-- single use form:::
+
+<form accept-charset='UTF-8' action='/users' method='post'>
+  <!-- anti XSRF token
+  <input
+    type='hidden'
+    name='authenticity_token'
+    value="<%= form_authenticity_token %>"
+  >
+
+  <label for="username">username:</label>
+  <input type="text" id="username" name="user[username]"><br>
+
+  <label for='email'>email:</label>
+  <input type="text" id="email" name="user[email]"><br>
+
+  <label for='password'>password:</label>
+  <input type="text" id="password" name="user[password]"><br>
+
+  <input type="submit" value="Create User">
+</form>
+-->
+
+<%= form_with model: @user do |form| %>
+  <div>
+    <%= form.label :username %>
+    <%= form.text_field :username, placeholder: "Enter your username" %>
+  </div>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.text_field :email, placeholder: "example@example.com" %>
+  </div>
+
+  <div>
+    <%= form.label :password %>
+    <%= form.text_field :password, placeholder: "********" %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
